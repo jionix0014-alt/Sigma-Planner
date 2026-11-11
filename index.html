@@ -3,55 +3,68 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SIGMA PLANNER</title>
+<title>Sigma Planner</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <div class="top"><h1>SIGMA<span>.</span>PLANNER</h1><div><button class="ib" id="th" aria-label="Toggle theme">◐</button> <button class="ib" id="today">TODAY</button></div></div>
-  <div class="top" style="margin:0"><button class="ib" id="prev" aria-label="Previous day">‹</button>
-    <div class="date"><b id="dl"></b><span id="ds"></span></div>
-    <button class="ib" id="next" aria-label="Next day">›</button></div>
-  <div class="week" id="week"></div>
-  <div class="card quote"><span id="q"></span><small id="qs"></small></div>
-  <div class="card"><h2>Discipline score</h2>
-    <div class="score"><b id="pc">0%</b><span id="rk">Rookie</span></div>
-    <div class="bar"><i id="pb"></i></div><div class="stat" id="pt"></div></div>
-  <div class="tabs">
-    <button class="tab on" data-t="a">MISSIONS</button>
-    <button class="tab" data-t="b">DEEN</button>
-    <button class="tab" data-t="c">MINDSET</button>
-  </div>
-
-  <section id="sa">
-    <div class="card"><h2>New mission</h2>
-      <div class="add">
+<div class="app">
+  <header class="bar"><button class="ic" id="th" aria-label="Toggle theme">◐</button><h1>Sigma Planner</h1><button class="ic" id="today">Today</button></header>
+  <main>
+    <section id="sa">
+      <div class="hello"><b id="dl"></b><span id="ds"></span></div>
+      <div class="card quote"><span id="q"></span><small id="qs"></small></div>
+      <div class="card sc"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" id="rg" cx="60" cy="60" r="52"/></svg>
+        <div><h2>Discipline score</h2><b id="pc">0%</b><div class="rk" id="rk"></div><small id="pt"></small></div></div>
+      <div class="strip" id="week"></div>
+      <button class="cta" id="ct">CREATE TASK</button>
+      <div class="card hide" id="form"><div class="add">
         <input type="text" id="nt" placeholder="What gets done today?" maxlength="120">
         <input type="time" id="ntm" aria-label="Time">
         <select id="np" aria-label="Priority"><option value="h">Critical</option><option value="m" selected>Important</option><option value="l">Routine</option></select>
-        <button class="go" id="ad">ADD</button>
-      </div></div>
-    <div class="card"><h2>Today’s missions</h2><ul id="list"></ul></div>
-    <div class="card"><h2>Daily log</h2><textarea id="nn" placeholder="Notes, ideas, lessons learned..."></textarea></div>
-  </section>
+        <button class="cta sm" id="ad">ADD</button></div></div>
+      <input type="search" id="sr" class="search" placeholder="Find tasks">
+      <div class="card"><h2>Today’s missions</h2><ul id="list"></ul></div>
+      <div class="card"><h2>Daily log</h2><textarea id="nn" placeholder="Notes, ideas, lessons learned..."></textarea></div>
+    </section>
 
-  <section id="sb" class="hide">
-    <div class="card"><h2>Five daily prayers</h2><ul id="pl"></ul></div>
-    <div class="card"><h2>Extra worship</h2><ul id="xl"></ul></div>
-    <div class="card"><h2>Quran recitation</h2>
-      <div class="row"><input type="number" id="qp" min="0" max="999" inputmode="numeric"> <span>pages / verses read</span></div></div>
-  </section>
+    <section id="sd" class="hide">
+      <div class="card"><div class="cm"><button class="ic" id="mp" aria-label="Previous month">‹</button><b id="cm"></b><button class="ic" id="mn" aria-label="Next month">›</button></div>
+        <div class="cg" id="cg"></div></div>
+      <div class="card"><h2 id="ct2">Tasks</h2><ul id="cl"></ul></div>
+    </section>
 
-  <section id="sc" class="hide">
-    <div class="card"><h2>Energy level</h2><div class="moods" id="md"></div></div>
-    <div class="card"><h2>Intention</h2>
-      <textarea id="in" placeholder="What will I conquer today?"></textarea>
-      <label class="l">Gratitude</label>
-      <textarea id="gr" placeholder="Three things I am grateful for..."></textarea></div>
-    <div class="card"><h2>My code (custom habits)</h2>
-      <div class="add" style="margin-bottom:8px"><input type="text" id="nh" placeholder="e.g. Gym, Cold shower, Read 10 pages" maxlength="60" style="flex:1"><button class="go" id="ah">ADD</button></div>
-      <ul id="hl"></ul></div>
-  </section>
+    <section id="sb" class="hide">
+      <div class="card"><h2>Five daily prayers</h2><ul id="pl"></ul></div>
+      <div class="card"><h2>Extra worship</h2><ul id="xl"></ul></div>
+      <div class="card"><h2>Quran recitation</h2><div class="row"><input type="number" id="qp" min="0" max="999" inputmode="numeric"><span>pages / verses read</span></div></div>
+    </section>
+
+    <section id="sc" class="hide">
+      <div class="card"><h2>Energy level</h2><div class="moods" id="md"></div></div>
+      <div class="card"><h2>Intention</h2><textarea id="in" placeholder="What will I conquer today?"></textarea>
+        <label class="l">Gratitude</label><textarea id="gr" placeholder="Three things I am grateful for..."></textarea></div>
+      <div class="card"><h2>My code (custom habits)</h2>
+        <div class="add" style="margin-bottom:8px"><input type="text" id="nh" placeholder="e.g. Gym, Cold shower, Read 10 pages" maxlength="60" style="flex:1"><button class="cta sm" id="ah">ADD</button></div>
+        <ul id="hl"></ul></div>
+    </section>
+
+    <section id="sf" class="hide">
+      <div class="card c">
+        <div class="modes"><button class="mo on" data-m="f">Focus</button><button class="mo" data-m="s">Short break</button><button class="mo" data-m="l">Long break</button></div>
+        <div class="tring"><svg viewBox="0 0 220 220"><circle class="bg" cx="110" cy="110" r="95"/><circle class="fg" id="tr" cx="110" cy="110" r="95"/></svg>
+          <div class="tc"><small id="ts"></small><b id="tt">25:00</b></div></div>
+        <div class="ctl"><button class="ic" id="rs" aria-label="Reset">↺</button><button class="play" id="pp" aria-label="Start or pause">▶</button></div>
+        <div class="stat" id="tf"></div>
+      </div>
+    </section>
+  </main>
+  <nav class="nav">
+    <button class="on" data-t="a"><i>🏠</i>Home</button>
+    <button data-t="d"><i>📅</i>Calendar</button>
+    <button data-t="b"><i>🕌</i>Deen</button>
+    <button data-t="c"><i>🧠</i>Mind</button>
+    <button data-t="f"><i>⏱</i>Focus</button>
+  </nav>
 </div>
 <script src="script.js"></script>
 </body>
